@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/jquery.pagepiling.css" />
+	<link rel="stylesheet" type="text/css" href="./css/app.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<script type="text/javascript" src="./jquery.pagepiling.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			* Plugin intialization
+			*/
+			if ($(window).width() > 500) {
+	    	$('#pagepiling').pagepiling({
+	          	direction: 'horizontal',
+	    		menu: '#menus',
+	    		anchors: ['page1', 'page2', 'page3'],
+			    sectionsColor: ['white', '#ee005a', '#2C3E50', '#39C'],
+				navigation: false,
+			    afterRender: function(){
+			    	// $('#pp-nav').addClass('custom');
+			    },
+			    afterLoad: function(anchorLink, index){
+			    	// if(index>1){
+			    	// 	$('#pp-nav').removeClass('custom');
+			    	// }else{
+			    	// 	$('#pp-nav').addClass('custom');
+			    	// }
+			    }
+			});
+			$('.next-slide, .slide-right').on('click', function(event) {
+				event.preventDefault();
+				$.fn.pagepiling.moveSectionDown();
+			});
+		} else {
+			$('html, body').css('overflow', 'inherit')
+		}
+	    });
+
+    </script>
+
+
+
+</head>
+<body>
+	<header>
+		<a href="#" class="logo">Nexus - Busines Intelligence</a>
+		<nav>
+		<span></span>
+			<a href="#"> — Navigation</a>
+		</nav>
+		<div class="phone">
+			Our phone
+			<strong>255-322-445</strong>
+		</div>
+	</header>
+
+	<div id="pagepiling">
+	    <div class="section" id="section1">
+			<div class="section-wrap">
+			<div class="white-circle">
+				<span>Hola!</span>
+			</div>
+			<div class="section-desc">
+	    	<h1>We have extended driving experience</h1>
+			<a href="#" class="next-slide">—&nbsp;&nbsp;&nbsp;&nbsp;Driving Digital Evolution</a>
+			</div>
+		</div>
+		<a href="#" class="slide-right"></a>
+	    </div>
+	    <div class="section" id="section2">
+	    	<div style="margin-top: -65px;"></div>
+	    </div>
+	    <div class="section" id="section3">
+	    	<div style="margin-top: -65px;"></div>
+	    </div>
+	</div>
+	<footer>
+		<div class="social">
+			<a href="#" class="fb"></a>
+			<a href="#" class="tw"></a>
+		</div>
+		<ul id="menus">
+			<li data-menuanchor="page1" class="active"><a href="#page1"><span>Services</span></a></li>
+			<li data-menuanchor="page2"><a href="#page2"><span>contacts</span></a></li>
+			<li data-menuanchor="page3"><a href="#page3"><span>Page 3</span></a></li>
+		</ul>
+	</footer>
+</body>
+</html>
